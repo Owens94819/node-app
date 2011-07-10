@@ -17,7 +17,7 @@ module.exports = async function (req, res) {
     try {
         var obj = {
             method,
-            headers: req.headers
+          //  headers: req.headers
             //body: req.body
         }
 
