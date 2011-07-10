@@ -16,12 +16,12 @@ module.exports = async function (req, res) {
 
     try {
         var obj = {
-           // method,
-          //  headers: req.headers
+            method,
+            headers: req.headers
             //body: req.body
         }
 
-
+//console.log(obj);
         url = await fetch(url,obj);
 
 
@@ -36,19 +36,19 @@ module.exports = async function (req, res) {
      //  header.forEach((val, key) => {
      //   res.setHeader(key, val)
      //   });
-        res.setHeader('x-powered-by', ['nimo'])
+        res.setHeader('x-powered-by', ['nimo-org'])
         //if (header['content-type']) {
           res.setHeader('content-type', header.get('content-type'))
        //}
 
-    //   console.log(header);
+    //  console.log(req.headers);
 
         res.send(url);
 
     } catch (error) {
          // console.log(error);
        if (error.message) {
-           res.header('x-powered-by', 'nimo')
+           res.header('x-powered-by', 'nimo-org')
            res.status(400).json(error)
        }
 
