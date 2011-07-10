@@ -10,7 +10,7 @@ const express = require('express'),
     fetch = require('node-fetch'),
     server = app.listen(process.env.PORT || 1234, () => {
         var port = server.address().port;
-        console.log(`http://localhost:${port}`);
+        console.log(`http://localhost:${port}\n\nhttp://nimo.localhost:1234`);
     });
 
 app.set('view engine', 'ejs')
@@ -27,7 +27,7 @@ fs.readdirSync(path('views/html routers')).forEach(e => {
     $e = e
     app.get(e, (req, res) => {
         e = e.substring(1, e.length)
-        res.render(`html routers/${e}`, { name: e || 'home' })
+        res.render(`html routers/${e}`, { name: e || 'home' }) // 
     })
 })
 
