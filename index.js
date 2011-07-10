@@ -4,7 +4,8 @@ require('./control room/global functions')
 
 const express = require('express'),
     vhost = require('vhost'),
-    router = express.Router(),
+    subdomainRouter = express.Router(),
+    jsFetchApiRouter = express.Router(),
     app = express(),
     fs = require('fs'),
     fetch = require('node-fetch'),
@@ -13,14 +14,20 @@ const express = require('express'),
         console.log(`http://localhost:${port}\n\nhttp://nimo.localhost:1234`);
     });
 
+
+$fetch = fetch;
+cors = require('cors');
+
 app.set('view engine', 'ejs')
 app.use(express.static('./lib/'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(require('./control room/header'))
 
-app.use(vhost('nimo.localhost', require('./control room/subdomains/nimo/index')(router)))
-app.use(vhost('*.localhost', require('./control room/subdomains/404')(router)))
+app.use(vhost('nimo.localhost', require('./control room/subdomains/nimo/index')(subdomainRouter)))
+app.use(vhost('*.localhost', require('./control room/subdomains/404')(subdomainRouter)))
+
+app.get('/api',require('./control room/api/fetch/index')(jsFetchApiRouter))
 
 fs.readdirSync(path('views/html routers')).forEach(e => {
     e = parseString(e)[0]
