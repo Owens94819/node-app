@@ -12,20 +12,10 @@ server = app.listen(process.env.PORT || 1234,()=>{
     console.log(`http://localhost:${port}`);
 });
 
-router.get('/l', function(req, res) {
-    res.send('Welcome to our API!');
-});
-
-app.use(subdomain('api', router));
-
-
 app.set('view engine', 'ejs')
 app.use(express.static('./lib/'))
 app.use(require('./control room/header'))
-
-
-
-
+app.use(subdomain('api', require('./control room/subdomain')(router)));
 
 fs.readdirSync(path('views/html routers')).forEach(e=>{
     e = parseString(e)[0]
@@ -41,7 +31,7 @@ fs.readdirSync(path('views/html routers')).forEach(e=>{
 
 app.use(require('./control room/404'))
 
-
+//console.log(fs.readdirSync('/'));
 //heroku logs --tail --app nimo2000
 
 //git add . 
