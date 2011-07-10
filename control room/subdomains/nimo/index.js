@@ -1,9 +1,13 @@
-module.exports = function(router) {
+module.exports = function(app) {
 
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
     console.dir(req.vhost)
     res.send('Welcome to our API!');
 });
 
-return router;
+app.use(function (req,res) {
+    res.sendStatus(404)
+})
+
+return app;
 }

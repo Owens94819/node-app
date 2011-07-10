@@ -13,18 +13,16 @@ const express = require('express'),
         console.log(`http://localhost:${port}\n\nhttp://nimo.localhost:1234`);
     });
 
-
 app.set('view engine', 'ejs')
 app.use(express.static('./lib/'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(require('./control room/header'))
 
-app.use(vhost('nimo.localhost', require('./control room/subdomains/nimo/index')(subdomainRouter)))
-app.use(vhost('*.localhost', require('./control room/subdomains/404')(subdomainRouter)))
+app.use(vhost('nimo.nimo2000.herokuapp.com', require('./control room/subdomains/nimo/index')(subdomainRouter)))
+app.use(vhost('nimo.localhost', subdomainRouter))
 
 app.use('/api',require('./control room/api/index')(ApiRouter))
-
 
 fs.readdirSync(path('views/html routers')).forEach(e => {
     e = parseString(e)[0]
