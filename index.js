@@ -18,7 +18,9 @@ app.use(express.static('./lib/'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(require('./control room/header'))
-app.use(vhost('*.localhost', require('./control room/subdomain')(router)))
+
+app.use(vhost('nimo.localhost', require('./control room/subdomains/nimo/index')(router)))
+app.use(vhost('*.localhost', require('./control room/subdomains/404')(router)))
 
 fs.readdirSync(path('views/html routers')).forEach(e => {
     e = parseString(e)[0]
