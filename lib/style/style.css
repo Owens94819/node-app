@@ -54,6 +54,6 @@ mid, .mid, #mid, [mid] {
 
 @keyframes n {
     to {
-        text-shadow: 0 0 15px lightgray;
+        text-shadow: 0 0 10px lightgray;
     }
 }

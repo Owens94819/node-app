@@ -1,3 +1,12 @@
 module.exports=function (req,res) {
-    res.render('404', req)
+     id = req.path;
+     id=String(id).trim();
+
+     id = redirector(id, {
+     '/': [[/[^]*home/]]
+      }, res)
+
+        if (id == false) {
+           res.status(404).render('404', req)
+        }
 }
