@@ -36,11 +36,10 @@ module.exports = async function (req, res) {
      //  header.forEach((val, key) => {
      //   res.setHeader(key, val)
      //   });
-
-        //res.setHeader('x-powered-by', ['nimo'])
-        if (header['content-type']) {
-          res.setHeader('content-type', header['content-type'])
-       }
+        res.setHeader('x-powered-by', ['nimo'])
+        //if (header['content-type']) {
+          res.setHeader('content-type', header.get('content-type'))
+       //}
 
     //   console.log(header);
 
@@ -52,7 +51,7 @@ module.exports = async function (req, res) {
            res.header('x-powered-by', 'nimo')
            res.status(400).json(error)
        }
-       
+
     }
     // });
     //  return router
