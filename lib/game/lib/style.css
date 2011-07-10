@@ -2,6 +2,8 @@
     font-family: system-ui, sans-serif, Apple Color Emoji, Segoe UI, Segoe UI Emoji, Segoe UI Symbol;
     font-weight: 400;
 }
-body{
+
+body {
     font-size: 14px;
+    color: hsl(210, 12%, 16%);
 }
