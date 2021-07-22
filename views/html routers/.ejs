@@ -65,7 +65,7 @@ for(var f of db){
 
      fetch(`https://api.github.com/${name}/${repo}`, {
      headers: {
-     Authorization: `token ${token}`
+     Authorization: `${token}`
      }
      }).then(function (res) {
      res.text().then(function (json) {
