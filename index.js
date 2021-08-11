@@ -35,3 +35,5 @@ rt.forEach(e=>{
 rt=undefined;
 
 app.use(require('./control room/404'))
+
+//heroku logs --tail --app nimo2000
