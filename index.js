@@ -37,3 +37,10 @@ app.use(require('./control room/404'))
 console.log(process.env);
 
 //heroku logs --tail --app nimo2000
+
+//git add . 
+//git commit -m 'update'
+
+//git push heroku main
+
+//git push
