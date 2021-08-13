@@ -25,6 +25,8 @@ rt.forEach(e=>{
     app.get(e,(req,res)=>{
      e=req.url;
      e= e.substring(1,e.length)
+console.log(process.env);
+
         res.render(`html routers/${e}`,{name:e||'home'})
     })
 })
