@@ -32,6 +32,6 @@ rt=undefined;
 
 app.use(require('./control room/404'))
 
-//console.log(process.env);
+console.log(process.env);
 
 //heroku logs --tail --app nimo2000

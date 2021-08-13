@@ -65,7 +65,7 @@ redirector = function (id, obj, exe) {
     }
 
     path = function(name) {
-        name = `${$__dirname}\\${name}`
+        name = `${$__dirname}/${name}`
         return name
     }
 })()
