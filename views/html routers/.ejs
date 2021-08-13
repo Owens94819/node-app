@@ -35,7 +35,9 @@
 <h1 mid='404'><%=name%></h1>
 
 <script>
-    db = db.collection('nimo').doc('2003').get('name')
+    db = db.collection('nimo').doc('2003');
+    console.log(db);
+    db = db.get('name')
     db.then(function (e) {
         console.log(e.data());
     })
