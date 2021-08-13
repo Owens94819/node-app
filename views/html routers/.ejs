@@ -39,7 +39,8 @@
     console.log(db);
     db = db.get('name')
     db.then(function (e) {
-        console.log(e.data());
+        e=e.data()
+        alert(e.name);
     })
 </script>
 </body>

@@ -25,8 +25,6 @@ rt.forEach(e=>{
     app.get(e,(req,res)=>{
      e=req.url;
      e= e.substring(1,e.length)
-console.log(process);
-
         res.render(`html routers/${e}`,{name:e||'home'})
     })
 })
@@ -34,7 +32,6 @@ rt=undefined;
 
 app.use(require('./control room/404'))
 
-console.log(process.env);
 
 //heroku logs --tail --app nimo2000
 
