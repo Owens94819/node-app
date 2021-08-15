@@ -35,7 +35,7 @@ fs.readdirSync(path('views/html routers')).forEach(e=>{
 
 
 app.use(require('./control room/404'))
-
+//sure
 //console.log(fs.readdirSync('/'));
 //heroku logs --tail --app nimo2000x
 
