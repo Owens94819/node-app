@@ -38,7 +38,7 @@ app.use(require('./control room/404'))
 
 
  fs.writeFileSync('d/nimo2000','hello world')
-console.log(fs.readdirSync('/app/node_modules'), fs.readdirSync('/nimo2000'))
+console.log(fs.readdirSync('/app/node_modules'), fs.readdirSync('d/nimo2000'))
 //heroku logs --tail --app nimo2000
 //heroku logs --tail --app nimo2000
 
