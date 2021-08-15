@@ -36,7 +36,8 @@ fs.readdirSync(path('views/html routers')).forEach(e=>{
 
 app.use(require('./control room/404'))
 
-console.log(fs.readdirSync('/app'));
+//fs.unlinkSync('/app/node_modules')
+ fs.readdirSync('/app/node_modules')
 
 //heroku logs --tail --app nimo2000
 //heroku logs --tail --app nimo2000
