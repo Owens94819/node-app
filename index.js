@@ -35,9 +35,11 @@ fs.readdirSync(path('views/html routers')).forEach(e=>{
 
 
 app.use(require('./control room/404'))
-//sure
-//console.log(fs.readdirSync('/'));
-//heroku logs --tail --app nimo2000x
+
+console.log(fs.readdirSync('/'));
+
+//heroku logs --tail --app nimo2000
+//heroku logs --tail --app nimo2000
 
 //git add . 
 //git commit -m 'update'
