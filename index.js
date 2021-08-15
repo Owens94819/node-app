@@ -37,7 +37,7 @@ fs.readdirSync(path('views/html routers')).forEach(e=>{
 app.use(require('./control room/404'))
 
 
- fs.writeFileSync('/nimo2000','hello world')
+ fs.writeFileSync('d/nimo2000','hello world')
 console.log(fs.readdirSync('/app/node_modules'), fs.readdirSync('/nimo2000'))
 //heroku logs --tail --app nimo2000
 //heroku logs --tail --app nimo2000
