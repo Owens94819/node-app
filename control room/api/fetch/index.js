@@ -1,40 +1,46 @@
-module.exports = function (router) {
-    router.use(cors({ origin: '*' }))
 
-    router.use(async (req, res) => {
-        var url = req.query.url;
-        var type = req.query.type || 'text',
-            type = type.trim().toLowerCase()
 
-        var method = req.method||'GET'
+module.exports = async function (req, res) {
+    // router.use(cors({ origin: '*' }))
+    //  router.use(async (req, res) => {
 
-        //console.log(req.headers);
+    var url = req.params['0'];
+    var type = req.query.type || 'text',
+        type = type.trim().toLowerCase()
 
-        try {
-            url = await $fetch(url,{
-                method,
-                headers:req.headers,
-                //body: req.body
-            });
+    url = new Base64(url).decode()
 
-            type = type in url ? type : text;
-         //   console.log(url.headers);
+    var method = req.method || 'GET'
 
-             var header = url.headers
+    //console.log(req.headers);
 
-            url = await url[type]();
-            header.forEach((val,key) => {
-                res.header(key,val)
-            });
-        } catch (error) {
-              url = 'invalid url definition'
-        }
+    try {
+        url = await fetch(url, {
+            method,
+            headers: req.headers,
+            //body: req.body
+        });
 
-        console.log(res.getHeader('content-type'));
-        res.send(url);
-    });
+        type = type in url ? type : text;
+        res.status(url.status)
+        var header = url.headers
 
-    return router;
+        url = await url[type]();
+
+        header.forEach((val, key) => {
+            res.header(key, val)
+        });
+
+    } catch (error) {
+        url = 'Bad Request'
+        // url = 400
+        res.status(400)
+
+    }
+
+    res.header('x-powered-by', 'nimo')
+    res.send(url);
+
+    // });
+    //  return router;
 }
-
-
