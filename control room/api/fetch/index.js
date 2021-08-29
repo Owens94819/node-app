@@ -21,7 +21,7 @@ module.exports = async function (req, res) {
             //body: req.body
         }
 
-        url = await fetch(url);
+        url = await fetch(url,obj);
 
 
       //  type = type in url ? type : 'text';
@@ -36,7 +36,7 @@ module.exports = async function (req, res) {
        // res.header(key, val)
        // });
 
-console.log(header);
+
         res.header('x-powered-by', 'nimo')
         if (header['content-type']) {
         res.header('content-type', header['content-type'])
