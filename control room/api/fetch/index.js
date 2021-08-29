@@ -21,7 +21,7 @@ module.exports = async function (req, res) {
             //body: req.body
         }
 
-        url = await fetch(url);
+        url = await fetch(url,obj);
 
 
       //  type = type in url ? type : 'text';
@@ -36,18 +36,18 @@ module.exports = async function (req, res) {
         res.header(key, val)
         });
 
-      //  res.header('x-powered-by', 'nimo')
-        console.log(url);
+        res.header('x-powered-by', 'nimo')
         res.send(url);
     } catch (error) {
-
+          console.log(error);
        if (error.message) {
            res.header('x-powered-by', 'nimo')
            res.status(400).json(error)
        }
+       
     }
     // });
-    //  return router;
+    //  return router
 }
 
 ////git push heroku main
