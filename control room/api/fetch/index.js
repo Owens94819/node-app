@@ -26,17 +26,17 @@ module.exports = async function (req, res) {
 
       //  type = type in url ? type : 'text';
 
-     // res.status(url.status)
+       res.status(url.status)
 
        // var header = url.headers
 
         url = await url.text();
 
-      //  url.headers.forEach((val, key) => {
-        //res.header(key, val)
-       // });
+       url.headers.forEach((val, key) => {
+        res.header(key, val)
+        });
 
-      ///  res.header('x-powered-by', 'nimo')
+        res.header('x-powered-by', 'nimo')
         res.send(url);
     } catch (error) {
          // console.log(error);
