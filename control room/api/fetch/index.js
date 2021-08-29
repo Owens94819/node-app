@@ -5,14 +5,14 @@ module.exports = async function (req, res) {
     //  router.use(async (req, res) => {
 
     var url = req.params['0'];
-    var type = req.query.type || 'text',
-        type = type.trim().toLowerCase()
+   
+   // var type = req.query.type || 'text',
+     //   type = type.trim().toLowerCase()
 
     url = new Base64(url).decode()
 
     var method = req.method || 'GET'
 
-    console.log(url);
 
     try {
         url = await fetch(url, {
@@ -20,19 +20,25 @@ module.exports = async function (req, res) {
             headers: req.headers
             //body: req.body
         });
+        
+        console.log(url);
 
-        type = type in url ? type : 'text';
-        res.status(url.status)
-        var header = url.headers
+      //  type = type in url ? type : 'text';
+
+      res.status(url.status)
+
+       // var header = url.headers
 
         url = await url['text']();
 
-        header.forEach((val, key) => {
-            res.header(key, val)
+        url.headers.forEach((val, key) => {
+        res.header(key, val)
         });
+
         res.header('x-powered-by', 'nimo')
         res.send(url);
     } catch (error) {
+
         res.header('x-powered-by', 'nimo')
         res.status(400).json(error)
     }
