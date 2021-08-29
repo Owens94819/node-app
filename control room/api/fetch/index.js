@@ -16,7 +16,7 @@ module.exports = async function (req, res) {
 
     try {
         var obj = {
-            method,
+           // method,
           //  headers: req.headers
             //body: req.body
         }
@@ -42,7 +42,7 @@ module.exports = async function (req, res) {
           res.setHeader('content-type', header['content-type'])
        // }
 
-       console.log(header);
+    //   console.log(header);
 
         res.send(url);
 
