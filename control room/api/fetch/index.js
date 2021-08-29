@@ -17,7 +17,7 @@ module.exports = async function (req, res) {
     try {
         url = await fetch(url, {
             method,
-            headers: req.headers,
+            //headers: req.headers,
             //body: req.body
         });
 
