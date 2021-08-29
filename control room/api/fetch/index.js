@@ -30,17 +30,12 @@ module.exports = async function (req, res) {
         header.forEach((val, key) => {
             res.header(key, val)
         });
-
+        res.header('x-powered-by', 'nimo')
+        res.send(url);
     } catch (error) {
-        url = 'Bad Request'
-        // url = 400
-        res.status(400)
-
+        res.header('x-powered-by', 'nimo')
+        res.status(400).json(error)
     }
-
-    res.header('x-powered-by', 'nimo')
-    res.send(url);
-
     // });
     //  return router;
 }
