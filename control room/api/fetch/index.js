@@ -38,9 +38,9 @@ module.exports = async function (req, res) {
      //   });
 
         //res.setHeader('x-powered-by', ['nimo'])
-        //if (header['content-type']) {
+        if (header['content-type']) {
           res.setHeader('content-type', header['content-type'])
-       // }
+       }
 
     //   console.log(header);
 
