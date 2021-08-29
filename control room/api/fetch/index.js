@@ -36,7 +36,7 @@ module.exports = async function (req, res) {
         res.header(key, val)
         });
 
-        res.header('x-powered-by', 'nimo')
+      //  res.header('x-powered-by', 'nimo')
         console.log(url);
         res.send(url);
     } catch (error) {
