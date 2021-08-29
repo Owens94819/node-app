@@ -33,13 +33,13 @@ module.exports = async function (req, res) {
 
         url = await url.text();
 
-       header.forEach((val, key) => {
-        res.setHeader(key, val)
-        });
+     //  header.forEach((val, key) => {
+     //   res.setHeader(key, val)
+     //   });
 
         //res.setHeader('x-powered-by', ['nimo'])
         //if (header['content-type']) {
-      //  res.header('content-type', header['content-type'])
+          res.setHeader('content-type', header['content-type'])
        // }
 
        console.log(header);
