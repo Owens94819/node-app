@@ -21,7 +21,7 @@ module.exports = async function (req, res) {
             //body: req.body
         }
 
-        url = await fetch(url,obj);
+        url = await fetch(url);
 
 
       //  type = type in url ? type : 'text';
