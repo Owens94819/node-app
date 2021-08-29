@@ -17,15 +17,15 @@ module.exports = async function (req, res) {
     try {
         url = await fetch(url, {
             method,
-            //headers: req.headers,
+            headers: req.headers,
             //body: req.body
         });
 
-        type = type in url ? type : text;
+        type = type in url ? type : 'text';
         res.status(url.status)
         var header = url.headers
 
-        url = await url[type]();
+        url = await url['text']();
 
         header.forEach((val, key) => {
             res.header(key, val)
