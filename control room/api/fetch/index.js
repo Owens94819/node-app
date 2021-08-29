@@ -15,11 +15,13 @@ module.exports = async function (req, res) {
 
 
     try {
-        url = await fetch(url, {
+        var obj = {
             method,
             headers: req.headers
             //body: req.body
-        });
+        }
+        
+        url = await fetch(url);
 
         console.log(url);
 
@@ -47,3 +49,5 @@ module.exports = async function (req, res) {
 }
 
 ////git push heroku main
+
+//heroku logs --tail --app nimo2000
