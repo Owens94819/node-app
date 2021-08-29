@@ -21,25 +21,25 @@ module.exports = async function (req, res) {
             //body: req.body
         }
 
-        url = await fetch(url,obj);
+        url = await fetch(url);
 
 
       //  type = type in url ? type : 'text';
 
-      res.status(url.status)
+     // res.status(url.status)
 
        // var header = url.headers
 
-        url = await url['text']();
+        url = await url.text();
 
-        url.headers.forEach((val, key) => {
-        res.header(key, val)
-        });
+      //  url.headers.forEach((val, key) => {
+        //res.header(key, val)
+       // });
 
-        res.header('x-powered-by', 'nimo')
+      ///  res.header('x-powered-by', 'nimo')
         res.send(url);
     } catch (error) {
-          console.log(error);
+         // console.log(error);
        if (error.message) {
            res.header('x-powered-by', 'nimo')
            res.status(400).json(error)
