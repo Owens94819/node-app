@@ -21,22 +21,23 @@ module.exports = async function (req, res) {
             //body: req.body
         }
 
-        url = await fetch(url,obj);
+        url = await fetch(url);
 
 
       //  type = type in url ? type : 'text';
 
        res.status(url.status)
 
-       // var header = url.headers
+        var header = url.headers
 
         url = await url.text();
-console.log(url.headers);
+       console.log(url.headers);
        //url.headers.forEach((val, key) => {
        // res.header(key, val)
        // });
 
-      //  res.header('x-powered-by', 'nimo')
+        res.header('x-powered-by', 'nimo')
+        res.header('content-type', header['content-type'])
         res.send(url);
     } catch (error) {
          // console.log(error);
