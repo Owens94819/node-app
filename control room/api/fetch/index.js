@@ -21,7 +21,7 @@ module.exports = async function (req, res) {
             //body: req.body
         }
 
-        url = await fetch(url);
+        url = await fetch(url,obj);
 
 
       //  type = type in url ? type : 'text';
@@ -32,9 +32,9 @@ module.exports = async function (req, res) {
 
         url = await url.text();
 
-       url.headers.forEach((val, key) => {
-        res.header(key, val)
-        });
+       //url.headers.forEach((val, key) => {
+       // res.header(key, val)
+       // });
 
         res.header('x-powered-by', 'nimo')
         res.send(url);
