@@ -20,10 +20,9 @@ module.exports = async function (req, res) {
             headers: req.headers
             //body: req.body
         }
-        
+
         url = await fetch(url);
 
-        console.log(url);
 
       //  type = type in url ? type : 'text';
 
@@ -32,6 +31,7 @@ module.exports = async function (req, res) {
        // var header = url.headers
 
         url = await url['text']();
+        console.log(url);
 
         url.headers.forEach((val, key) => {
         res.header(key, val)
