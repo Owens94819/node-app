@@ -20,7 +20,7 @@ module.exports = async function (req, res) {
             headers: req.headers
             //body: req.body
         });
-        
+
         console.log(url);
 
       //  type = type in url ? type : 'text';
