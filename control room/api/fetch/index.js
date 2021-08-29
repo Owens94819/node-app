@@ -36,10 +36,13 @@ module.exports = async function (req, res) {
        // res.header(key, val)
        // });
 
+console.log(header);
         res.header('x-powered-by', 'nimo')
+        if (header['content-type']) {
         res.header('content-type', header['content-type'])
+        }
         res.send(url);
-        
+
     } catch (error) {
          // console.log(error);
        if (error.message) {
