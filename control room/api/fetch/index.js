@@ -36,7 +36,7 @@ console.log(url.headers);
        // res.header(key, val)
        // });
 
-        res.header('x-powered-by', 'nimo')
+      //  res.header('x-powered-by', 'nimo')
         res.send(url);
     } catch (error) {
          // console.log(error);
