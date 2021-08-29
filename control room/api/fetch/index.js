@@ -31,7 +31,7 @@ module.exports = async function (req, res) {
         var header = url.headers
 
         url = await url.text();
-       console.log(url.headers);
+       //console.log(url.headers);
        //url.headers.forEach((val, key) => {
        // res.header(key, val)
        // });
