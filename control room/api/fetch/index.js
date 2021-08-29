@@ -31,18 +31,20 @@ module.exports = async function (req, res) {
        // var header = url.headers
 
         url = await url['text']();
-        console.log(url);
 
         url.headers.forEach((val, key) => {
         res.header(key, val)
         });
 
         res.header('x-powered-by', 'nimo')
+        console.log(url);
         res.send(url);
     } catch (error) {
 
-        res.header('x-powered-by', 'nimo')
-        res.status(400).json(error)
+       if (error.message) {
+           res.header('x-powered-by', 'nimo')
+           res.status(400).json(error)
+       }
     }
     // });
     //  return router;
