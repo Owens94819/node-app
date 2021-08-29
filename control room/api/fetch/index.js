@@ -12,12 +12,12 @@ module.exports = async function (req, res) {
 
     var method = req.method || 'GET'
 
-    //console.log(req.headers);
+    console.log(url);
 
     try {
         url = await fetch(url, {
             method,
-            headers: req.headers,
+            headers: req.headers
             //body: req.body
         });
 
