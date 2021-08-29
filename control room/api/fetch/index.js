@@ -31,16 +31,18 @@ module.exports = async function (req, res) {
         var header = url.headers
 
         url = await url.text();
-       //console.log(url.headers);
-       //url.headers.forEach((val, key) => {
-       // res.header(key, val)
-       // });
 
+       header.forEach((val, key) => {
+        res.setHeader(key, val)
+        });
 
-        res.header('x-powered-by', 'nimo')
-        if (header['content-type']) {
-        res.header('content-type', header['content-type'])
-        }
+        //res.setHeader('x-powered-by', ['nimo'])
+        //if (header['content-type']) {
+      //  res.header('content-type', header['content-type'])
+       // }
+
+       console.log(header);
+
         res.send(url);
 
     } catch (error) {
