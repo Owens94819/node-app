@@ -5,6 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/chrom-scroll.css">
+    <script src="lib/menu.js"></script>
+<script>
+    window.xmenu = menu([
+            {
+                name: 'sign up',
+                action: function () {
+                    alert(99)
+                }
+            },
+        {
+            name: 'posts',
+            action: function () {
+                alert(99)
+            }
+        },
+        {
+            name: 'message us',
+            action: function () {
+                alert(99)
+            }
+        }
+        ])()
+</script>
 <style>
     *::-webkit-scrollbar {
         background:rgba(0, 0, 0, 0.123) ;
@@ -29,8 +52,8 @@ border-radius: 100px;
         <h-left>
             game store
         </h-left>
-        <h-right>
-            <h-item>
+        <h-right id=right>
+            <h-item id='list'>
                 <h-icon>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
@@ -46,9 +69,6 @@ border-radius: 100px;
                     menu
                 </h-text>
             </h-item>
-            <menu id=pr >
-           <menu>helo</menu>
-            </menu>  
         </h-right>
      </header>
      <article class="m-body" id="article">
@@ -56,7 +76,7 @@ border-radius: 100px;
 <pr-board>
 
 
-<pr-wrap>
+<!--pr-wrap>
     <h1 class="cp text">latest</h1>
     <pr-item>
         <x-game>
@@ -65,7 +85,6 @@ border-radius: 100px;
             </xg-icon>
             <xg-name>download gta 5 for android devices.</xg-name>
         </x-game>
-
         <x-game>
             <xg-icon>
                 <img src="img/board.jpg" />
@@ -93,8 +112,6 @@ border-radius: 100px;
     </pr-item>
     <svg onload="top4(this.previousElementSibling)"></svg>
 </pr-wrap>
-
-
 
 <pr-wrap>
      <h1 class="cp text">recommended</h1>
@@ -105,7 +122,6 @@ border-radius: 100px;
             </xg-icon>
             <xg-name>download gta 5 for android devices.</xg-name>
         </x-game>
-
         <x-game>
             <xg-icon>
                 <img src="img/board.jpg" />
@@ -133,7 +149,6 @@ border-radius: 100px;
     </pr-item>
     <svg onload="top4(this.previousElementSibling)"></svg>
 </pr-wrap>
-
 
 <pr-wrap>
     <h1 class="cp text">most downloaded</h1>
@@ -141,7 +156,9 @@ border-radius: 100px;
         Oops! stats not enough
     </pr-item>
     <svg onload="top4(this.previousElementSibling)"></svg>
-</pr-wrap>
+</pr-wrap-->
+
+<svg onload="top4(this.parentElement)"></svg>
 </pr-board>
         </x-article>
      </article>

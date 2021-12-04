@@ -123,8 +123,8 @@ xg-icon {
 }
 
 x-game:hover {
-    z-index: 1;
-    box-shadow: 0 0 12px -2px rgba(0, 0, 0, 0.3);
+    z-index: 0;
+    box-shadow: 0 0 12px -2px hsla(0, 0%, 0%, 0.3);
     transform: scale(1.1);
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
@@ -178,4 +178,57 @@ pr-wrap:nth-child(even) {
 pr-wrap:nth-child(even) pr-item {
     text-align: end;
     justify-: right;
+}
+
+menu#pr {
+    display: flex;
+    background: hsla(47, 100%, 69%, 1);
+    color: white;
+    font-size: 13px;
+    text-shadow: 0 0 1px hsl(0, 0%, 62%);
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 170px;
+    backdrop-filter-: blur(5px);
+    box-shadow: inset 0 0 5px hsl(0, 0%, 100%), 0 0 10px 4px hsl(47, 100%, 50%);
+}
+
+menu#wrap {
+    border-bottom: 1px solid currentColor;
+}
+
+menu#wrap:nth-last-child(1) {
+    box-shadow: none;
+    border: none;
+}
+
+menu#ch {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+menu#ch:hover {
+    background: hsla(47, 100%, 65%, 1);
+    box-shadow: inset 5px 0 0 currentColor;
+}
+
+menu svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
+    opacity: 90%;
+}
+
+menu#pr.h menu#wrap:nth-child(1) menu#ch:nth-child(1) {
+    background: hsl(0, 0%, 100%);
+    color: hsl(47, 100%, 69%);
+}
+
+menu#pr.h menu#wrap:nth-child(1) menu#ch:nth-child(1):hover {
+    background: hsl(0, 0%, 97%);
+    box-shadow: none;
 }
