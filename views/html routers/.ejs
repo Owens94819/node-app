@@ -33,7 +33,7 @@
 
 <body scrollbars>
     <h1>list</h1>
-    <p><%=json%></p>
+    <p id=p><%=json%></p>
 <ul>
 <%
 for(var f of db){
@@ -53,6 +53,25 @@ for(var f of db){
         console.log(e);
         alert(e.name);
     })
+
+     const token =
+
+     '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',
+     name =
+     "Owens94819",
+     repo =
+     "console";
+
+
+     fetch(`https://api.github.com/${name}/${repo}`, {
+     headers: {
+     Authorization: `token ${token}`
+     }
+     }).then(function (res) {
+     res.text().then(function (json) {
+     p.innerText=json
+     })
+     })
 </script>
 </body>
 </html>

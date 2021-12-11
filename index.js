@@ -42,17 +42,10 @@ fs.readdirSync(path('views/html routers')).forEach(e => {
      repo =
      "console";
 
-
- fetch(`https://api.github.com/${name}/${repo}`, {
-     headers: {
-         Authorization: `token ${token}`
-     }
- }).then(function (res) {
      res.text().then(function (json) {
-         res.render(`html routers/${e}`, { name: e || 'home',db,json }) 
+         res.render(`html routers/${e}`, { name: e || 'home',db,json:'nothing' }) 
      })
- })
-    })
+
 })
 
 
