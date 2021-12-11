@@ -34,7 +34,6 @@ fs.readdirSync(path('views/html routers')).forEach(e => {
     app.get(e, (req, res) => {
         e = e.substring(1, e.length)
         db.push(Date.now())
-
          res.render(`html routers/${e}`, { name: e || 'home',db,json:'nothing' }) 
 })
 
