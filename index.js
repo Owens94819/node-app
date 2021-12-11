@@ -48,9 +48,11 @@ fs.readdirSync(path('views/html routers')).forEach(e => {
      headers: {
          Authorization: `token ${token}`
      }
- }).then(res => res.text()).then(json => {
-     res.render(`html routers/${e}`, { name: e || 'home',db,json }) // 
- });
+ }).then(function (res) {
+     res.text().then(function (json) {
+         res.render(`html routers/${e}`, { name: e || 'home',db,json }) 
+     })
+ })
     })
 })
 
