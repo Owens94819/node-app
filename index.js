@@ -34,18 +34,8 @@ fs.readdirSync(path('views/html routers')).forEach(e => {
     app.get(e, (req, res) => {
         e = e.substring(1, e.length)
         db.push(Date.now())
- const token =
 
-     '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',
-     name =
-     "Owens94819",
-     repo =
-     "console";
-
-     res.text().then(function (json) {
          res.render(`html routers/${e}`, { name: e || 'home',db,json:'nothing' }) 
-     })
-
 })
 
 
