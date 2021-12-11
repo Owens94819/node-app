@@ -3,8 +3,7 @@ $__dirname = __dirname;
 require('./control room/global functions')
 
 const express = require('express'),
-        fetch = require('node-fetch'),
-        vhost = require('vhost'),
+    vhost = require('vhost'),
     subdomainRouter = express.Router(),
     ApiRouter = express.Router(),
     app = express(),
@@ -33,8 +32,8 @@ fs.readdirSync(path('views/html routers')).forEach(e => {
     $e = e
     app.get(e, (req, res) => {
         e = e.substring(1, e.length)
-        db.push(Date.now())
-         res.render(`html routers/${e}`, { name: e || 'home',db,json:'nothing' }) 
+        res.render(`html routers/${e}`, { name: e || 'home',db }) // 
+    })
 })
 
 
