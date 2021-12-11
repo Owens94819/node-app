@@ -1,4 +1,3 @@
-//import fetch from 'node-fetch';
 $__dirname = __dirname;
 
 require('./control room/global functions')
