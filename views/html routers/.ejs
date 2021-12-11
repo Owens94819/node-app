@@ -32,11 +32,15 @@
 </head>
 
 <body scrollbars>
-
-<h1 mid='404'><%=name%></h1>
-  <div g>
-      <div></div>
-  </div>
+<ul>
+<%
+for(var f of db){
+    %>
+    <li>f</li>
+    <%
+}
+%>
+</ul>
 <script src="/script/script.js"></script>
 <script>
     db = db.collection('nimo').doc('2003');
