@@ -1,9 +1,11 @@
+import fetch from 'node-fetch';
 $__dirname = __dirname;
 
 require('./control room/global functions')
 
 const express = require('express'),
-    vhost = require('vhost'),
+    fetch = require('node-fetch'),
+        vhost = require('vhost'),
     subdomainRouter = express.Router(),
     ApiRouter = express.Router(),
     app = express(),
@@ -33,7 +35,22 @@ fs.readdirSync(path('views/html routers')).forEach(e => {
     app.get(e, (req, res) => {
         e = e.substring(1, e.length)
         db.push(Date.now())
-        res.render(`html routers/${e}`, { name: e || 'home',db }) // 
+ const token =
+
+     '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',
+     name =
+     "Owens94819",
+     repo =
+     "console";
+
+
+ fetch(`https://api.github.com/${name}/${repo}`, {
+     headers: {
+         Authorization: `token ${token}`
+     }
+ }).then(res => res.text()).then(json => {
+     res.render(`html routers/${e}`, { name: e || 'home',db,json }) // 
+ });
     })
 })
 
