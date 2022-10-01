@@ -8,7 +8,7 @@ const express = require('express'),
     ApiRouter = express.Router(),
     app = express(),
     fs = require('fs'),
-    server = app.listen(process.env.PORT || 1234, () => {
+    server = app.listen(process.env.PORT || 12345, () => {
         var port = server.address().port;
         console.log(`http://localhost:${port}\n\nhttp://nimo.localhost:${port}`);
     }),
