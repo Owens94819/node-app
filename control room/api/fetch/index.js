@@ -14,7 +14,7 @@ module.exports = async function (req, res) {
     } catch (error) {
       qr={}
     }
-   
+    //t
    
    // var type = req.query.type || 'text',
      //   type = type.trim().toLowerCase()
