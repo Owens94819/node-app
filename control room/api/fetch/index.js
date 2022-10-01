@@ -7,7 +7,7 @@ module.exports = async function (req, res) {
     var url = req.params['0'];
    var qr=req.query.s
 
-  
+
     try {
       qr=new Base64(qr).decode()
       qr=JSON.parse(qr)
@@ -19,21 +19,36 @@ module.exports = async function (req, res) {
    // var type = req.query.type || 'text',
      //   type = type.trim().toLowerCase()
 
+   try {
     url = new Base64(url).decode()
+   } catch (error) {
+    //  url=""
+   }
 
-    var method = req.method || 'GET'
+    var method = 'GET'
 
 
     try {
         var obj = {
-            method
-          //  headers: req.headers
+            method,
+           headers: {}
             //body: req.body
         }
 
+
+
+        for (var key in req.headers) {
+          if ((key[0]+key[1]).toLowerCase()==="x-") {
+           obj.headers[key.substring(2)]=req.headers[key]
+          }else if ((key[0]+key[1]).toLowerCase()==="o-"&&key.substring(2) !=="headers") {
+           obj[key.substring(2)]=req.headers[key]
+          }
+        }
+        
+        // console.log(obj);
+// console.log(obj.headers);
 //console.log(obj);
         url = await fetch(url,obj);
-
         //  type = type in url ? type : 'text';
         
         res.status(url.status)
@@ -81,6 +96,7 @@ module.exports = async function (req, res) {
     } catch (error) {
          // console.log(error);
          if (error.message) {
+           res.setHeader("X-Url", url)
            res.header('x-powered-by', 'nimo-org')
            res.setHeader("Access-Control-Expose-Headers", "X-Url")
            res.status(400).json(error)
