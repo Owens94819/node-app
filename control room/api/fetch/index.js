@@ -49,6 +49,8 @@ if (!obj.body) {
 }else{
 obj.headers["Content-Length"]=obj.body.length;
 }
+
+
 bd=undefined;
 
         for (var key in req.headers) {
@@ -114,7 +116,7 @@ bd=undefined;
         res.send(url);
 
     } catch (error) {
-         // console.log(error);
+         console.log(error);
         //  console.log(error);
          if (error.message) {
            res.setHeader("X-Url", url)
