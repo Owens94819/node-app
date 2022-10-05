@@ -26,28 +26,43 @@ module.exports = async function (req, res) {
    }
 
     var method = 'GET'
-
+var bd=req.body
 
     try {
         var obj = {
             method,
-           headers: {}
-            //body: req.body
+            headers: {},
+            body: ""
         }
 
+for (const key in bd) {
+  if (obj.body) {
+    obj.body+="&"+encodeURIComponent(key)+'='+encodeURIComponent(bd[key])
+  }else{
+    obj.body+=encodeURIComponent(key)+'='+encodeURIComponent(bd[key])
+  }
+}
 
+
+if (!obj.body) {
+  delete obj.body
+}else{
+obj.headers["Content-Length"]=obj.body.length;
+}
+bd=undefined;
 
         for (var key in req.headers) {
-          if ((key[0]+key[1]).toLowerCase()==="x-") {
-           obj.headers[key.substring(2)]=req.headers[key]
-          }else if ((key[0]+key[1]).toLowerCase()==="o-"&&key.substring(2) !=="headers") {
-           obj[key.substring(2)]=req.headers[key]
+          if ((key[0]+key[1]).toLowerCase().trim()==="x-") {
+           obj.headers[key.trim().substring(2)]=req.headers[key]
+          }else if ((key[0]+key[1]).toLowerCase().trim()==="o-"&&key.substring(2) !=="headers") {
+           obj[key.trim().substring(2)]=req.headers[key]
           }
         }
         
         // console.log(obj);
 // console.log(obj.headers);
 //console.log(obj);
+
         url = await fetch(url,obj);
         //  type = type in url ? type : 'text';
         
@@ -81,7 +96,12 @@ module.exports = async function (req, res) {
       //  });
         res.setHeader('x-powered-by', ['nimo-org'])
         //if (header['content-type']) {
-          res.setHeader('content-type', header.get('content-type'))
+          if (req.headers.returned_content_type){
+            res.setHeader('content-type', req.headers.returned_content_type)
+          }else{
+            res.setHeader('content-type', header.get('content-type'))
+          }
+
           res.setHeader('content-length', url.length)
   
           res.setHeader("Access-Control-Expose-Headers", "X-Url")
@@ -95,6 +115,7 @@ module.exports = async function (req, res) {
 
     } catch (error) {
          // console.log(error);
+        //  console.log(error);
          if (error.message) {
            res.setHeader("X-Url", url)
            res.header('x-powered-by', 'nimo-org')

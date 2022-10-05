@@ -20,10 +20,16 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(require('./control room/header'))
 
+
 app.use(vhost('nimo.nimo2000.herokuapp.com', require('./control room/subdomains/nimo/index')(subdomainRouter)))
 app.use(vhost('nimo.localhost', subdomainRouter))
-
 app.use('/api',require('./control room/api/index')(ApiRouter))
+
+app.post('/post',function(req,res){
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:1234")
+    // console.log(req);
+    res.json(req.body)
+})
 // app.use('/ll:ll', (req, res) => {
 //     res.send('test mode...') 
 // })
